@@ -1,0 +1,73 @@
+div.profile{
+    display: flex;
+    min-height: 700px;
+}
+img.profilePhoto{
+    border: gold 5px solid;
+    border-radius: 40px;
+    width: 100%;
+}
+div.profileInfo{
+    margin-left: 2%;
+    margin-top: 2%;
+    width: 70%;
+}
+span.profileName{
+    font-size: 50px;
+    font-family: "Trade Winds";
+    margin-left: 6%;
+    color: gold;
+}
+hr.hr{
+    border-radius: 10%;
+}
+div.profileImg{
+    width: 20%;
+    height: fit-content;
+    margin-left: 5%;
+    margin-top: 2%;
+    text-align: center;
+}
+div.profileImg:hover input.uploadButton{
+    display: block;
+}
+input.uploadButton{
+    margin: auto;
+    position: relative;
+    bottom: 60px;
+    border: 3px solid gold;
+    border-radius: 10px;
+    background-color: rgb(16, 108, 255);
+    color: gold;
+    display: none;
+}
+input.uploadButton::before{
+    content: 'Select some files';
+    background-color: gold;
+    color: rgb(16, 108, 255);
+    border: gold 3px solid;
+    font-size: 15px;
+}
+input.uploadButton::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+span.hoverOnImage{
+    color: gold;
+    font-size: 10px;
+    position: relative;
+    bottom:10px;
+}
+button.editButton{
+    border: 3px solid gold;
+    border-radius: 10px;
+    background-color:rgb(16, 108, 255) ;
+    font-size: 20px;
+    color: gold ;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button.editButton:hover{
+    border-color: rgb(255, 136, 0) ;
+    color: rgb(255, 136, 0);
+    background-color:rgb(88, 16, 255) ;
+}

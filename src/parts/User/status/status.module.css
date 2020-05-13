@@ -1,0 +1,15 @@
+span.profileStatus{
+    cursor: pointer;
+    font-size: 30px;
+    font-family: "Trade Winds";
+    color: rgb(255, 254, 167);
+}
+textarea.statusTextarea{
+    font-size: 24px;
+    resize: none;
+    width: 40%;
+}
+div.titleToChange{
+    color: gold;
+    font-size: 10px ;
+}

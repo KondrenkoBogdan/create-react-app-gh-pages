@@ -1,0 +1,37 @@
+
+div.aboutMe{
+    font-size: 30px;
+    color: gold;
+    font-family: "Trade Winds";
+}
+div.socialMediaDiv{
+    border: 3px gold solid ;
+    border-radius: 20px;
+    padding: 10px;
+}
+button.titleBut{
+    color: gold;
+    background-color: rgb(16, 139, 255);
+    border: 3px gold solid ;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    font-size: 25px;
+    transition: 0.3s;
+}
+button.titleBut:hover{
+    border-color: rgb(255, 123, 0);
+    color: rgb(255, 123, 0);
+    background-color: rgb(16, 108, 255);
+}
+div.titleDiv{
+    margin-left: 2%;
+    font-family: "Trade Winds";
+    font-size: 25px;
+    color:gold;
+}
+div.profileLookingForAJobDescription{
+    font-size: 23px;
+    font-family: "Trade Winds";
+    color: gold;
+}

@@ -1,0 +1,114 @@
+div.place{
+    font-family: "Caladea";
+    color: gold;
+    position: relative;
+    left: 35%;
+    background: rgb(2, 115, 221);
+    border: gold 3px solid;
+    border-radius: 40px;
+    width: 30%;
+    height: 4 00px;
+    margin-top: 100px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: right;
+}
+div.butDiv{
+    position: relative;
+    top: 20px;
+}
+button.but{
+    font-family: "Trade Winds";
+    color:gold;
+    background: rgb(2, 115, 221);
+    border: gold 3px solid;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+button.but:hover{
+    background: rgb(16, 139, 255) ;
+    border: 3px solid gold;
+}
+a.doItHere{
+    color: orange;
+    transition: 0.3s;
+}
+a.doItHere:hover{
+    color: darkblue;
+}
+.container {
+    display: block;
+    font-family: "Caladea";
+    color: gold;
+    padding-top: 10px;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.checkmark {
+    position: absolute;
+    height: 15px;
+    width:  15px;
+    background-color: rgb(16, 139, 255);
+    border: 3px solid gold;
+    transition: 0.3s;
+}
+.container:hover input ~ .checkmark {
+    background-color: rgb(7, 72, 133);
+}
+.container input:checked ~ .checkmark {
+    background-color: rgb(33, 150, 243);
+}
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+.container .checkmark:after {
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: 3px solid gold;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+div.checkboxDiv{
+    width: 40%;
+    margin: auto;
+}
+div.testAccountDescription{
+    font-family: "Caladea";
+    text-align: left;
+    margin:0 0 30px 20%;
+    color: gold;
+    font-size: 24px;
+}
+div.fullObject{
+    height: 600px;
+}
+input.loginForm{
+    border: 2px solid rgb(7, 72, 133);
+    border-radius: 5px;
+    margin: 10px 0 10px 0;
+    padding: 5px 0 5px 5px;
+    width: 70%;
+    font-size: 17px;
+}

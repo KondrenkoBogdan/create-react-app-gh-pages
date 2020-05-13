@@ -1,0 +1,156 @@
+button.shopToggler:hover{
+    border: 3px rgb(255, 123, 0) solid;
+    background: rgb(16, 139, 255);
+    color: rgb(255, 123, 0);
+}
+button.shopToggler{
+    position: absolute;
+    top: 120px;
+    left: 21%;
+    border: 3px gold solid;
+    border-radius: 10px;
+    font-family: 'Caladea';
+    padding: 1%;
+    color: gold;
+    font-size: 23px;
+    font-weight: bold;
+    background:rgb(2, 115, 221);
+    transition: 0.4s;
+}
+h3.shopItem:hover{
+    border-bottom: 3px rgb(255, 123, 0) solid;
+    background:rgb(2, 115, 221) ;
+    cursor: pointer;
+}
+div.itemDirection{
+    width: 100%;
+}
+div.right{
+    width: 100%;
+    text-align: right;
+}
+h3.shopItemCommon{
+    color:rgb(231, 231, 231);
+}
+h3.shopItemRare{
+    color:rgb(179, 218, 255);
+}
+h3.shopItemUltra{
+    color:rgb(255, 155, 255);
+}
+h3.shopItemLeg{
+    color:rgb(255, 123, 0);
+}
+h3.shopItemSecret{
+    color: goldenrod;
+}
+div.left{
+    color:gold;
+    text-align: left;
+}
+div.inline{
+    display: inline;
+}
+h3.shopItem{
+    transition: 0.4s;
+    display: flex;
+    max-width: 100%;
+    margin: 0;
+    padding: 10px 2% 10px 2%;
+    font-size: 22px;
+    border-bottom: 3px gold solid;
+}
+h2.itemName{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: gold;
+    padding: 2% 0 2% 0;
+    margin-bottom: 5%;
+    border-bottom: 5px gold solid;
+}
+h2.cardTitle{
+    padding: 0% 5% 1% 5%;
+    font-size: 23px;
+    color: gold;
+}
+div.bottom{
+    text-align: right;
+    background: gold;
+    border-bottom-left-radius: 20px ;
+    border-bottom-right-radius: 20px ;
+    width: 100%;
+}
+p.bottom{
+    color: black;
+    font-size: 20px;
+    margin: 0;
+    margin-right: 5%;
+}
+div.liner{
+    background: gold;
+    border-top-left-radius: 20px ;
+    border-top-right-radius: 20px ;
+    width: 100%;
+}
+p.liner{
+    color: black;
+    font-size: 20px;
+    margin: 0;
+    margin-left: 3%;
+}
+h4.cardCaption{
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 20px;
+}
+img.itemImg{
+    padding-bottom: 4%;
+    width: 50%;
+    position: relative;
+    left:25%;
+}
+div.item:hover div.effect{
+    display: block;
+}
+div.effect{
+    overflow: visible;
+    border: 5px gold solid;
+    border-radius: 30px;
+    display: none;
+    position: fixed;
+    width: 20%;
+    left:20.5%;
+    top: 110px;
+    background: rgb(16, 139, 255);
+    z-index: 102;
+}
+div.typeToggler{
+    border-bottom: 4px solid gold;
+    display: flex;
+    justify-content: space-around;
+}
+div.vertLine{    
+    border-left: solid 3px gold;
+}
+span.typeToggler{
+    background-color:rgb(16, 139, 255);
+    text-align: center;
+    width: 33%;
+    max-width: 100%;
+    color: gold;
+    font-weight: 700;
+    margin: 0;
+    padding: 10px 2% 10px 2%;
+    font-size: 22px;
+    transition: 0.4s;
+}
+span.typeToggler:hover{
+    cursor: pointer;
+    background-color:rgb(2, 115, 221);
+    color: rgb(255, 123, 0);
+}
+div.shopPlace{
+    width: 20%;
+    border-right: 3px solid gold ;
+}

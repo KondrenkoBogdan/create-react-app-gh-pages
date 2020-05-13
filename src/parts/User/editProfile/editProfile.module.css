@@ -1,0 +1,104 @@
+div.placeName{
+    font-size: 25px;
+    font-family: "Trade Winds";
+    color: gold;
+}
+hr.hr{
+    border:1px solid black;
+    border-radius: 50%;
+    color: orange;
+}
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkmark {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(16, 139, 255);
+    border: 3px solid gold;
+    transition: 0.3s;
+  }
+  .container:hover input ~ .checkmark {
+    background-color: rgb(7, 72, 133);
+  }
+  .container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: 3px solid gold;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  div.typeOfContacts{
+    font-size: 25px;
+    color: gold;
+    /* text-align: right; */
+    margin-right: 60%;
+  }
+  textarea{
+    resize: none;
+    font-size: 20px;
+    width: 60%;
+    border: 3px solid gold;
+    border-radius: 10px;
+    background:rgb(2, 115, 221);
+    color: gold;
+  }
+  textarea::placeholder{
+    color: rgba(255, 166, 0, 0.733);
+  }
+  div.contactsDiv{
+    margin-left: 2%;
+  }
+  div.contactsDiv textarea{
+    margin-left: 2%;
+  }
+  button.saveButton{
+    border: gold 3px solid;
+    border-radius: 10px;
+    background-color:rgb(16, 139, 255) ;
+    color: gold;
+    width: 10%;
+    height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "Trade Winds";
+  }
+  button.saveButton:hover{
+    background-color:rgb(7, 72, 133);
+    border-color: orange;
+  }
+  span.simpleText{
+    font-family: "Times New Roman";
+  }

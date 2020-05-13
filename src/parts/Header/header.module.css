@@ -1,0 +1,97 @@
+div.header{
+    margin: 0;
+    background: rgb(16, 139, 255);
+    width: 100%;
+    height: 100px;
+    display: flex;
+
+}
+a.loginPlace{
+    color: gold;
+    text-transform: uppercase;
+    font-family: "Trade Winds";
+}
+span.loginName{
+    font-size: 20px;
+    text-decoration: underline;
+}
+button.logOutButton{
+    background-color: rgb(16, 139, 255);
+    border: 2px solid gold;
+    border-radius: 10px;
+    font-size: 20px;
+    color: gold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button.logOutButton:hover{
+    border-color: rgb(255, 123, 0);
+    color:rgb(255, 123, 0);
+    background-color: rgb(218, 218, 218);
+}
+.login{
+    font-size: 25px;
+    font-family: "Trade Winds";
+    color:gold;
+    text-decoration: none;
+    transition: 0.4s;
+}
+.activeLink{
+    color: rgb(255, 123, 0);
+}
+.login:hover{
+    text-decoration: none;
+    color: rgb(255, 123, 0);
+}
+div.loginDiv{
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+div.vertLine{
+    width: 100%;
+    border-top: gold 4px solid;
+}
+div.line{
+    height: 100%;
+    border-left: gold 3px solid;
+    margin-right: 60px;
+}
+div.nameDiv{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 20%;
+    max-width: 15%;
+}
+.name{
+    text-decoration: none;
+    color: gold;
+    font-size: 30px;
+    font-family: "Trade Winds";
+    position: relative;
+    margin: auto;
+    transition: 0.4s;
+}
+div.secondaryFunctions{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 1.5% 0 1.5%;
+    font-family: "Trade Winds";
+    font-size: 25px;
+}
+.secondary{
+    text-decoration: none;
+    color:gold;
+    transition: 0.3s;
+}
+.secondary:hover{
+    text-decoration: none;
+    color: rgb(255, 123, 0);
+}
+.name:hover{
+    text-decoration: none;
+    color: rgb(255, 123, 0);
+}

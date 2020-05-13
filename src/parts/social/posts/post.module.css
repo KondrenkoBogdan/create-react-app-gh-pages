@@ -1,0 +1,41 @@
+div.post{
+    background: rgb(2, 115, 221) ;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-top: 1px double gold;
+    border-bottom: 1px double gold;
+    display: flex;
+}
+div.avatar{
+    flex:2;
+}
+img.avatar{
+    width: 100%;
+}
+div.messageDiv{
+    flex:12;
+}
+p.nameLink{
+    font-family: 'Bellota', cursive;
+    font-size: 24px;
+    color: aquamarine;
+    margin-left: 10px;
+}
+p.nameLink:hover{
+    text-decoration: none;
+}
+p.message{
+    font-family: 'Bellota', cursive;
+    color: aqua;
+    margin: 0 0 20px 50px;
+}
+div.likeDiv{
+    flex:1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+img.like{
+    margin-top: 10px;
+    width: 70%;
+}

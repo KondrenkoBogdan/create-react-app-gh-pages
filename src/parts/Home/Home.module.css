@@ -1,0 +1,30 @@
+div.homePlace{
+    border-left: gold 5px solid;
+    margin-top: 5%;
+    text-align: center;
+    margin-left: 3%;
+    height: 600px;
+}
+h1.welcomeTitle{
+    color: gold;
+    margin-bottom: 3%;
+    font-family: "Trade Winds";
+}
+strong{
+    text-decoration: underline;
+    color: gold;
+}
+a{
+    text-decoration: none;
+}
+p.description{
+    text-decoration: none;
+    color: wheat;
+    text-align: left;
+    font-family: "Caladea";
+    font-size: 25px;
+    line-height: 200%;
+    text-indent: 4%;
+    padding-left:7%;
+    padding-right: 5%;
+}

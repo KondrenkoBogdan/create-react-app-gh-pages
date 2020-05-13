@@ -1,0 +1,10 @@
+div.contacts{
+    font-size: 20px;
+    font-weight: 700;
+    color: gold;
+    font-family: "Trade Winds";
+}
+a.contactsLink {
+    font-weight: 400;
+    color: rgb(255, 174, 0);
+}

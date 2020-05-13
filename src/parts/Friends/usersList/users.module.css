@@ -1,0 +1,93 @@
+div.friendsPlace{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2%;
+    border: #ffd700 3px solid; 
+    border-radius: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+div.friendCard * {
+    font-family: "Caladea";
+}
+div.avatarDiv{
+    width: 100%;
+}
+div.border{
+    border: 1px red solid;
+}
+img.avatar{
+    width: 100%;
+}
+div.infoBar{
+    display: flex;
+}
+div.infoDiv2{
+    width: 50%;
+    padding-left: 2%;
+    text-align: left;
+}
+div.infoDiv{
+    width: 50%;
+    text-align: right;
+}
+p.isFollowed{
+    font-size: 25px;
+}
+p.info{
+    color: white;
+}
+p.info2{
+    color: white;
+}
+p.name{
+    color: gold;
+    font-size: 30px;
+}
+a.linkCard:hover{
+    text-decoration: none;
+}
+p.infoMoney{
+    color: gold;
+}
+p.infoClickCount{
+    color: rgb(255, 157, 0);
+}
+p.infoHp{
+    color: rgb(37, 255, 37);
+}
+div.friendCard:hover{
+    background: rgb(1, 132, 255) ;
+}
+div.friendCard{
+    min-width: 160px;
+    background: rgb(2, 115, 221);
+    margin: 4% 1.6% 2% 1.6%;  
+    border:3px gold solid;
+    border-radius: 10px ;
+    width:16%;
+    text-align: center;
+}
+button.followButton{
+    width: 100%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    border: none;
+    background: rgb(2, 115, 221);
+    color: #ffd700;
+    font-size: 20px;
+    font-weight: 900;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top: 3px solid gold;
+}
+button.followButton:hover{
+    background-color: rgb(2, 71, 136);
+}
+span.unfollow{
+    color: red;
+}
+button:disabled{
+    background: rgb(9, 58, 107);
+}
