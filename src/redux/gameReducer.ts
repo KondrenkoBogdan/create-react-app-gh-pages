@@ -15,34 +15,69 @@ const ADD_ARMOR = "ADD-ARMOR"
 const ADD_ATTACK = "ADD-ATTACK"
 const ADD_CPC = "ADD-CPC"
 
-export const maxValueMoney = () => {
+type maxValueMoneyType = {
+    type: typeof MAX_VALUE_MONEY
+}
+export const maxValueMoney = (): maxValueMoneyType => {
     return { type: MAX_VALUE_MONEY }
 }
-export const maxValueHealth = () => {
+
+type maxValueHealthType = {
+    type: typeof MAX_VALUE_HEALTH
+}
+export const maxValueHealth = (): maxValueHealthType => {
     return { type: MAX_VALUE_HEALTH }
 }
-export const clickActionCreator = () => {
+
+type clickActionCreatorType = {
+    type: typeof CLICK_PLUS
+}
+export const clickActionCreator = (): clickActionCreatorType => {
     return { type: CLICK_PLUS }
 }
-export const plusHealthActionCreator = () => {
+
+type plusHealthActionCreatorType = {
+    type: typeof TO_HEALTH
+}
+export const plusHealthActionCreator = (): plusHealthActionCreatorType => {
     return { type: TO_HEALTH }
 }
-export const plusMoneyActionCreator = () => {
+
+type plusMoneyActionCreatorType = {
+    type: typeof TO_MONEY
+}
+export const plusMoneyActionCreator = (): plusMoneyActionCreatorType => {
     return { type: TO_MONEY }
 }
-export const plusHealthAreaActionCreator = (plusHealthNum) => {
+
+type plusHealthAreaActionCreatorType = {
+    type: typeof PLUS_HEALTH_NUM,
+    plusHealthNum: number
+}
+export const plusHealthAreaActionCreator = (plusHealthNum: number): plusHealthAreaActionCreatorType => {
     return {
         type: PLUS_HEALTH_NUM,
         plusHealthNum: plusHealthNum
     }
 }
-export const plusMoneyAreaActionCreator = (plusMoneyNum) => {
+
+type plusMoneyAreaActionCreatorType = {
+    type: typeof PLUS_MONEY_NUM,
+    plusMoneyNum: number
+}
+export const plusMoneyAreaActionCreator = (plusMoneyNum: number): plusMoneyAreaActionCreatorType => {
     return {
         type: PLUS_MONEY_NUM,
         plusMoneyNum: plusMoneyNum
     }
 }
-export const buyItem = (typeAction, price) => {
+
+type buyItemType = {
+    type: typeof BUYITEM,
+    typeAction: string,
+    price:number
+}
+export const buyItem = (typeAction: string, price: number): buyItemType => {
     return { type: BUYITEM, typeAction, price }
 }
 
@@ -63,16 +98,18 @@ let initialState = {
         { name: "SECRETLY UPDATER", id: 12, itemType: click, price: 70000, raryty: "secretly", type: { functionType: ADD_CPC, count: 777 }, effect: "+777 CPC", effectCaption: "You are realy mad, don't envy yours mouse ..." }
     ],
     gameData: { hp: 1, money: 500, clickCount: 0 },
-    plusHealthNum: 1,
-    plusMoneyNum: 1,
+    plusHealthNum: 1 as number | string,
+    plusMoneyNum: 1 as number | string,
     cpc: 1,
     totalClicks: 0,
     attack: 1,
     armor: 0
 }
 
-const gameReducer = (state = initialState, action) => {
-    let stateCopy = { ...state };
+type InitialStateType = typeof initialState
+
+const gameReducer = (state = initialState, action:any): InitialStateType => {
+    let stateCopy: InitialStateType = { ...state };
 
     switch (action.type) {
         case BUYITEM:
@@ -94,15 +131,16 @@ const gameReducer = (state = initialState, action) => {
             stateCopy.gameData.clickCount = stateCopy.gameData.clickCount + stateCopy.cpc;
             return stateCopy;
         case TO_MONEY:
-            if (parseInt(stateCopy.plusMoneyNum) > 0 && stateCopy.gameData.clickCount >= parseInt(stateCopy.plusMoneyNum)) {
-                stateCopy.gameData.money = stateCopy.gameData.money + parseInt(stateCopy.plusMoneyNum);
-                stateCopy.gameData.clickCount = stateCopy.gameData.clickCount - stateCopy.plusMoneyNum;
+            if (!(parseInt(<string>stateCopy.plusMoneyNum) > 0 && stateCopy.gameData.clickCount >= parseInt(<string>stateCopy.plusMoneyNum))) {
+            } else {
+                stateCopy.gameData.money = stateCopy.gameData.money + parseInt(<string>stateCopy.plusMoneyNum);
+                stateCopy.gameData.clickCount = stateCopy.gameData.clickCount - parseInt(<string>stateCopy.plusMoneyNum);
             }
             return stateCopy;
         case TO_HEALTH:
-            if (parseInt(stateCopy.plusHealthNum) > 0 && stateCopy.gameData.clickCount >= parseInt(stateCopy.plusHealthNum)) {
-                stateCopy.gameData.hp = stateCopy.gameData.hp + parseInt(stateCopy.plusHealthNum);
-                stateCopy.gameData.clickCount = stateCopy.gameData.clickCount - stateCopy.plusHealthNum;
+            if (parseInt(<string>stateCopy.plusHealthNum) > 0 && stateCopy.gameData.clickCount >= parseInt(<string>stateCopy.plusHealthNum)) {
+                stateCopy.gameData.hp = stateCopy.gameData.hp + parseInt(<string>stateCopy.plusHealthNum);
+                stateCopy.gameData.clickCount = stateCopy.gameData.clickCount - parseInt(<string>stateCopy.plusHealthNum);
             }
             return stateCopy;
         case PLUS_MONEY_NUM:

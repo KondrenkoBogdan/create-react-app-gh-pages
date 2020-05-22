@@ -130,7 +130,7 @@ div.typeToggler{
     display: flex;
     justify-content: space-around;
 }
-div.vertLine{    
+div.vertLine{
     border-left: solid 3px gold;
 }
 span.typeToggler{
@@ -145,10 +145,21 @@ span.typeToggler{
     font-size: 22px;
     transition: 0.4s;
 }
-span.typeToggler:hover{
+span.typeToggler:hover, .lookAtAll:hover{
     cursor: pointer;
     background-color:rgb(2, 115, 221);
     color: rgb(255, 123, 0);
+}
+span.lookAtAll{
+    background-color:rgb(16, 139, 255);
+    text-align: center;
+    width: 100%;
+    color: gold;
+    font-weight: 700;
+    margin: 0;
+    padding: 10px 2% 10px 2%;
+    font-size: 22px;
+    transition: 0.4s;
 }
 div.shopPlace{
     width: 20%;

@@ -1,9 +1,17 @@
-import React from "react"
+import React, {FC} from "react"
 import { NavLink } from "react-router-dom";
 import avatar from "../../../common/img/avatar.png";
 import s from './users.module.css';
+import {SmallUserType} from "../../../common/types/types";
 
-const UsersList = ({ friendsData, followLoad, follow, isFollowedB }) => {
+
+type PropsType = {
+    friendsData: Array<SmallUserType>,
+    followLoad: Array<number>,
+    follow: any,
+    isFollowedB: any
+}
+const UsersList: FC<PropsType> = ({ friendsData, followLoad, follow, isFollowedB }) => {
     return (
         <div className={s.friendsPlace}>
             {friendsData.map(friend => (
@@ -24,4 +32,4 @@ const UsersList = ({ friendsData, followLoad, follow, isFollowedB }) => {
     )
 }
 
-export default UsersList
+export default UsersList;

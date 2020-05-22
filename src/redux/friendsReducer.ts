@@ -1,4 +1,5 @@
 import { getUsers, getNewUsersPage, followApi, unfollowApi } from "../api/api";
+import {SmallUserType} from "../common/types/types";
 
 let SETUSERS = "SET-USERS";
 let SETTOTALUSERSCOUNT = "SET-TOTAL-USERS-COUNT";
@@ -7,50 +8,78 @@ let ISFETCHINGTOGGLE = "IS-FETCHING-TOGGLE";
 let FOLLOWFUNCTION = "FOLLOW-FUNCTION";
 let FOLLOWLOAD = "FOLLOW-LOAD";
 
-export const followFunctionActionCreator = (id) => {
+type FollowFunctionActionType = {
+    type: typeof FOLLOWFUNCTION
+    id: number
+}
+export const followFunctionActionCreator = (id: number): FollowFunctionActionType => {
     return { type: FOLLOWFUNCTION, id }
 }
-export const setUsersActionCreator = (users) => {
+type SetUsersActionType = {
+    type: typeof SETUSERS
+    users: Array<SmallUserType>
+}
+export const setUsersActionCreator = (users: Array<SmallUserType>): SetUsersActionType => {
     return { type: SETUSERS, users }
 }
-export const setTotalUsersCountActionCreator = (num) => {
+
+type SetTotalUsersCountActionCreator = {
+    type: typeof SETTOTALUSERSCOUNT
+    num: number
+}
+export const setTotalUsersCountActionCreator = (num: number): SetTotalUsersCountActionCreator => {
     return { type: SETTOTALUSERSCOUNT, num }
 }
-export const setNewSelectedPageActionCreator = (num) => {
+
+type SetNewSelectedPageActionType = {
+    type: typeof SETNEWSELECTEDPAGE
+    num: number
+}
+export const setNewSelectedPageActionCreator = (num: number):SetNewSelectedPageActionType  => {
     return { type: SETNEWSELECTEDPAGE, num }
 }
-export const toggleIsFetchingActionCreator = (isFetching) => {
+
+type ToggleIsFetchingActionType = {
+    type: typeof ISFETCHINGTOGGLE
+    isFetching: boolean
+}
+export const toggleIsFetchingActionCreator = (isFetching: boolean): ToggleIsFetchingActionType => {
     return { type: ISFETCHINGTOGGLE, isFetching }
 }
-export const toggleFollowLoad = (isFollowLoad, id) => {
+
+type ToggleFollowLoadType = {
+    type: typeof FOLLOWLOAD
+    isFollowLoad: boolean
+    id: number
+}
+export const toggleFollowLoad = (isFollowLoad: boolean, id: number):ToggleFollowLoadType  => {
     return { type: FOLLOWLOAD, isFollowLoad, id }
 }
 
 
 
-let initialStore = {
-    friendsData: [],
-    pageSize: 30,
+let initialState = {
+    friendsData: [] as Array<any>,
+    pageSize: 100,
     totalUsersCount: 0,
     selectedPage: 1,
     isFetching: true,
-    followLoad: [],
+    followLoad: [] as Array<any>,
     isFollowLoad: false,
     paginationPortion: 7
 }
+type InitialStoreType = typeof initialState
 
-const friendsReducer = (state = initialStore, action) => {
-    let stateCopy = { ...state }
-    stateCopy.friendsData = [...state.friendsData]
-    stateCopy.followLoad = [...state.followLoad]
+const friendsReducer = (state = initialState, action: any): InitialStoreType => {
+    let stateCopy: typeof state = { ...state };
+    stateCopy.friendsData = [...state.friendsData];
+    stateCopy.followLoad = [...state.followLoad];
 
     switch (action.type) {
         case FOLLOWFUNCTION:
              stateCopy.friendsData.map( u => {
                 if (u.id === action.id){
-                    if (u.followed === false) {
-                        u.followed = true
-                    } else { u.followed = false }
+                    u.followed = u.followed === false;
                 }
             })
             return stateCopy;
@@ -67,7 +96,7 @@ const friendsReducer = (state = initialStore, action) => {
             stateCopy.isFetching = action.isFetching;
             return stateCopy;
         case FOLLOWLOAD:
-            if (action.isFollowLoad === true) {
+            if (action.isFollowLoad === true){
                 stateCopy.followLoad.push(action.id)
             } else {
                 stateCopy.followLoad = stateCopy.followLoad.filter(id => id !== action.id)
@@ -77,8 +106,8 @@ const friendsReducer = (state = initialStore, action) => {
     }
 }
 
-export const getUsersThunkCreator = (pageSize) => {
-    return async (dispatch) => {
+export const getUsersThunkCreator = (pageSize: number) => {
+    return async (dispatch: any) => {
         dispatch(toggleIsFetchingActionCreator(true));
         let response = await getUsers(pageSize)
             dispatch(setUsersActionCreator(response.data.items));
@@ -86,8 +115,8 @@ export const getUsersThunkCreator = (pageSize) => {
             dispatch(toggleIsFetchingActionCreator(false));
     }
 }
-export const getNewUsersPageThunkCreator = (pageSize, p) => {
-    return async (dispatch) => {
+export const getNewUsersPageThunkCreator = (pageSize: number, p: number) => {
+    return async (dispatch: any) => {
         dispatch(toggleIsFetchingActionCreator(true));
         let response = await getNewUsersPage(pageSize, p)
             dispatch(setNewSelectedPageActionCreator(p));
@@ -95,8 +124,8 @@ export const getNewUsersPageThunkCreator = (pageSize, p) => {
             dispatch(toggleIsFetchingActionCreator(false));
     }
 }
-export const followThunkCreator = (id, isFollowed) => {
-    return async (dispatch) => {
+export const followThunkCreator = (id: number, isFollowed: boolean) => {
+    return async (dispatch: any) => {
         dispatch(toggleFollowLoad(true, id))
             let response = await followUnfollowAPI(isFollowed, id)
                 if (response.data.resultCode === 0) {
@@ -108,8 +137,8 @@ export const followThunkCreator = (id, isFollowed) => {
     }
 }
 
-export const followUnfollowAPI = async (isFollowed, id) => {
-    if(isFollowed === true){return await unfollowApi(id)
+export const followUnfollowAPI = async (isFollowed: boolean, id: number) => {
+    if(isFollowed){return await unfollowApi(id)
     }else{
         return await followApi(id)
     }

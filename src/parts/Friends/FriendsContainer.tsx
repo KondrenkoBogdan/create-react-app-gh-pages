@@ -1,26 +1,44 @@
-import React from "react";
+import React, {FC} from "react";
 import { connect } from "react-redux";
 import { followThunkCreator, getNewUsersPageThunkCreator, getUsersThunkCreator, followFunctionActionCreator, setUsersActionCreator, setTotalUsersCountActionCreator, setNewSelectedPageActionCreator, toggleFollowLoad } from "../../redux/friendsReducer"
 import Users from "./Friends";
 import { compose } from "redux";
 import { useEffect } from "react";
 import { getFollowLoad, getPageCount, getIsFetching, getFriendsData, getTotalUsersCount, getPageSize, getSelectedPage, getPaginationPortion } from "../../common/selectors/usersSelectors";
+import {SmallUserType} from "../../common/types/types";
 
 
-
-const Friends = (props) => {
+type PropsType = {
+    isFetching: boolean,
+    friendsData: Array<SmallUserType>,
+    totalUsersCount: number,
+    pageSize: number,
+    selectedPage: number,
+    pagesCount: number,
+    followLoad: boolean,
+    paginationPortion: number,
+    toggleFollowLoad: any,
+    getUsersThunkCreator: any,
+    getNewUsersPageThunkCreator: any,
+    followThunkCreator: any,
+    follow: any,
+    setUsers:any,
+    setTotalUsersCount: any,
+    setNewSelectedPage: any
+}
+const Friends: FC<PropsType> = (props) => {
 
     useEffect(() => {
         props.getUsersThunkCreator(props.pageSize)
     }, [props.pageSize])
 
-    let pageChanger = (p) => {
+    let pageChanger = (p:number) => {
         props.getNewUsersPageThunkCreator(props.pageSize, p)
     }
-    let followF = (id, isFollowed) => {
+    let followF = (id:number, isFollowed:boolean) => {
         props.followThunkCreator(id, isFollowed)
     }
-    let isFollowedB = (people) => {
+    let isFollowedB = (people:any) => {
         if (people === true) {
             return (<span style={{ color: "red" }} >UNFOLLOW</span>)
         } else {
@@ -38,22 +56,21 @@ const Friends = (props) => {
     </>
 }
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state:any) => {
     return {
-        isFetching: getIsFetching(state),
-        friendsData: getFriendsData(state),
-        totalUsersCount: getTotalUsersCount(state),
-        pageSize: getPageSize(state),
-        selectedPage: getSelectedPage(state),
-        pagesCount: getPageCount(state),
-        followLoad: getFollowLoad(state),
-        paginationPortion: getPaginationPortion(state),
+        isFetching: getIsFetching(state) as boolean,
+        friendsData: getFriendsData(state) as Array<SmallUserType>,
+        totalUsersCount: getTotalUsersCount(state) as number,
+        pageSize: getPageSize(state) as number,
+        selectedPage: getSelectedPage(state) as number,
+        pagesCount: getPageCount(state) as number,
+        followLoad: getFollowLoad(state) as boolean,
+        paginationPortion: getPaginationPortion(state) as number,
     }
 }
 
 export default compose(
-    connect(mapStateToProps,
-        {
+    connect(mapStateToProps,{
             toggleFollowLoad,
             getUsersThunkCreator,
             getNewUsersPageThunkCreator,

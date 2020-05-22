@@ -1,7 +1,14 @@
-import React, { useState } from "react"
+import React, {FC, useState} from "react"
 import s from './Paginator.module.css';
 
-const Pagination = ({ pageChanger, selectedPage, pagesCount, paginationPortion }) => {
+type PropsType = {
+    pageChanger: (pagesCount: number) => void,
+    selectedPage: number,
+    pagesCount: number,
+    paginationPortion:number
+}
+
+const Pagination: FC<PropsType> = ({ pageChanger, selectedPage, pagesCount, paginationPortion }) => {
 
     let pages = []
 
@@ -20,6 +27,6 @@ const Pagination = ({ pageChanger, selectedPage, pagesCount, paginationPortion }
         {forSelectedPage < pagesCount - paginationPortion ? <button className={s.nextPrevButtons} onClick={() => { setForSelectedPage(forSelectedPage + 10) }}>NEXT</button> : null}
         {forSelectedPage < pagesCount - paginationPortion ? <span onClick={() => { pageChanger(pagesCount); setForSelectedPage(pagesCount)  }} className={s.paginatorSpans}>...{pagesCount}</span> : null}
     </div>
-}
+};
 
-export default Pagination
+export default Pagination;

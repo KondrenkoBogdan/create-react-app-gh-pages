@@ -8,33 +8,59 @@ let SETAUTHSTATUS = "SET-AUTH-STATUS";
 let SETINITIALIZED = "SET-INITIALIZED";
 let SETCAPTCHAURL = "SET-CAPTCHA-URL";
 
-export const setAuthUserDataActionCreator = (id, email, login) => {
+type SetAuthUserDataActionType = {
+    type: typeof SETAUTHUSERDATA
+    data: {id: number, email: string, login: string}
+}
+export const setAuthUserDataActionCreator = (id: number, email: string, login: string): SetAuthUserDataActionType => {
     return { type: SETAUTHUSERDATA, data: { id, email, login } }
 }
-export const toggleIsFetchingActionCreator = (isFetching) => {
+
+type ToggleIsFetchingActionType = {
+    type: typeof ISFETCHINGTOGGLE
+    isFetching: boolean
+}
+export const toggleIsFetchingActionCreator = (isFetching: boolean): ToggleIsFetchingActionType => {
     return { type: ISFETCHINGTOGGLE, isFetching }
 }
-export const setAuthStatusActionCreator = (isAuth) => {
+
+type SetAuthStatusActionCreator = {
+    type: typeof SETAUTHSTATUS
+    isAuth: boolean
+}
+export const setAuthStatusActionCreator = (isAuth: boolean): SetAuthStatusActionCreator => {
     return { type: SETAUTHSTATUS, isAuth }
+}
+
+type SetInitialized = {
+    type: typeof SETINITIALIZED
 }
 export const setInitialized = () =>{
     return {type: SETINITIALIZED}
 }
-export const setCaptchaUrl = (captcha) => {
+
+type SetCaptchaUrl = {
+    type: typeof SETCAPTCHAURL
+    captcha: string
+}
+export const setCaptchaUrl = (captcha: string): SetCaptchaUrl => {
     return {type: SETCAPTCHAURL, captcha}
 }
 
 let initialState = {
-    id: null,
-    email: null,
-    login: null,
+    id: null as number|null,
+    email: null as string|null,
+    login: null as string|null,
     isFetching: false,
     isAuth: false,
     initialized: false,
-    captcha: null
+    captcha: null as string|null
 }
 
-const authReducer = (state = initialState, action) => {
+type InitialStateType = typeof initialState;
+
+
+const authReducer = (state = initialState, action: any) : InitialStateType => {
 
     let stateCopy = { ...state }
 
@@ -66,14 +92,14 @@ const authReducer = (state = initialState, action) => {
 }
 
 export const initializedThunkCreator = () => {
-    return(dispatch) => {
+    return(dispatch: any) => {
         let promis = dispatch(authFThunkCreator())
         promis.then( () => {dispatch(setInitialized())})
     }
 }
 
 export const authFThunkCreator = () => {
-    return async (dispatch) => {
+    return async (dispatch: any) => {
         let response = await authF()
             if (response.data.resultCode === 0) {
                 let { id, email, login } = response.data.data;
@@ -82,12 +108,12 @@ export const authFThunkCreator = () => {
             } else { dispatch(setAuthStatusActionCreator(false)) }
     }
 }
-export const loginThunkCreator = (submitInfo) => {
-    return async (dispatch) => {
+export const loginThunkCreator = (submitInfo: any) => {
+    return async (dispatch: any) => {
         let response = await loginApi(submitInfo)
             if(response.data.resultCode === 0){
                 dispatch(authFThunkCreator());
-                dispatch(redirectToLogin())
+                dispatch(redirectToLogin(true))
             } else {
                 let action = stopSubmit("login", {_error: response.data.messages})
                 dispatch(action)
@@ -98,14 +124,14 @@ export const loginThunkCreator = (submitInfo) => {
     }
 }
 export const logOutThunkCreator = () => {
-    return async (dispatch) => {
+    return async (dispatch: any) => {
         await logOutApi()
             dispatch(authFThunkCreator());
     }
 }
 
 export const getCaptchaThunkCreator = () => {
-    return async (dispatch) => {
+    return async (dispatch: any) => {
         let response = await captchaUrl()
         dispatch(setCaptchaUrl(response.data.url))
     }

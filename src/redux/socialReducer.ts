@@ -1,12 +1,24 @@
 const ADD_POST = "ADD-POST";
 const DEL_POST = "DEL-POST";
 
-export const addPostFunctionActionCreator = (newPostMessage, userName) => {
+type addPostFunctionActionCreatorType = {
+    type: typeof ADD_POST,
+    newPostMessage: string,
+    userName: string
+}
+export const addPostFunctionActionCreator = (newPostMessage:string, userName:string): addPostFunctionActionCreatorType => {
     return {type: ADD_POST, newPostMessage, userName}
 }
-export const deletePostFunctionActionCreator = (postId) => {
+
+type deletePostFunctionActionCreatorType = {
+    type: typeof DEL_POST,
+    postId: number
+}
+export const deletePostFunctionActionCreator = (postId:number) => {
     return {type: DEL_POST, postId}
 }
+
+
 let initialState = {
     postData: [
         {id: 1, name: "Ксюша", likes: "9", message: "Я люблю щипать Богдана за жопу и его тоже люблю"},
@@ -14,7 +26,9 @@ let initialState = {
         {id: 3, name: "Богдан", likes: "2", message: "Я люблю Ксюшеньку Свитенко !"}
     ]
 }
-const socialReducer = (state = initialState, action) => {
+type InitialStateType = typeof initialState;
+ 
+const socialReducer = (state = initialState, action: any): InitialStateType => {
 
     let stateCopy = {...state};
     stateCopy.postData = [...state.postData];

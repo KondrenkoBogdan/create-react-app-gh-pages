@@ -88,11 +88,11 @@ const Shop = (props) => {
 
     return (
         <>
-            {shopActive ? <div id="shop" className={s.shopPlace}>
+            {shopActive ? <div className={s.shopPlace}>
                 <div className={s.typeToggler}>
                     <span onClick={() => {
                         toggler("all")
-                    }} className={s.typeToggler}> Look at all</span>
+                    }} className={s.lookAtAll}> Look at all</span>
                 </div>
                 <div className={s.typeToggler}>
                     <span onClick={() => {
