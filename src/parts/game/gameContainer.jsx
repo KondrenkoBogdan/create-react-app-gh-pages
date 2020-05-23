@@ -1,9 +1,19 @@
-import {clickActionCreator, plusHealthActionCreator, plusMoneyActionCreator, plusHealthAreaActionCreator, plusMoneyAreaActionCreator, buyItem, maxValueMoney, maxValueHealth } from "../../redux/gameReducer"
+import {
+    clickActionCreator,
+    plusHealthActionCreator,
+    plusMoneyActionCreator,
+    plusHealthAreaActionCreator,
+    plusMoneyAreaActionCreator,
+    buyItem,
+    maxValueMoney,
+    maxValueHealth
+} from "../../redux/gameReducer"
 import Game from "./game";
-import { connect } from "react-redux";
-import {withAuthRedirect } from "../../HOC/withAuthRedirect";
-import { compose } from "redux";
-import { getGamePage, getUserName } from "../../common/selectors/gamePageSelectors";
+import {connect} from "react-redux";
+import {withAuthRedirect} from "../../HOC/withAuthRedirect";
+import {compose} from "redux";
+import {getGamePage} from "../../common/selectors/gamePageSelectors";
+import {getUserName} from "../../common/selectors/authSelectors";
 
 let mapStateToProps = (state) => {
     return {
@@ -24,4 +34,4 @@ export default compose(
         buyItem
     }),
     withAuthRedirect
-    )(Game);
+)(Game);

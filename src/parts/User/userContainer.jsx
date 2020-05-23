@@ -17,10 +17,10 @@ import {
     getIsFetching,
     getUserStatus,
     getRedirect,
-    getMyId,
     getError, getIsLoadNewFile
 } from "../../common/selectors/userSelectors";
 import {useEffect} from "react";
+import {getMyId} from "../../common/selectors/authSelectors";
 
 const UserBD = (props) => {
 

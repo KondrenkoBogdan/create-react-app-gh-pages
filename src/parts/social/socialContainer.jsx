@@ -1,9 +1,10 @@
-import { addPostFunctionActionCreator, deletePostFunctionActionCreator } from "../../redux/socialReducer"
+import {addPostFunctionActionCreator, deletePostFunctionActionCreator} from "../../redux/socialReducer"
 import Social from "./social";
-import { connect } from "react-redux";
-import { withAuthRedirect } from "../../HOC/withAuthRedirect";
-import { compose } from "redux";
-import { getSocialPage, getUserName } from "../../common/selectors/socialPageSelectors";
+import {connect} from "react-redux";
+import {withAuthRedirect} from "../../HOC/withAuthRedirect";
+import {compose} from "redux";
+import {getSocialPage} from "../../common/selectors/socialPageSelectors";
+import {getUserName} from "../../common/selectors/authSelectors";
 
 let mapStateToProps = (state) => {
     return {
@@ -18,4 +19,4 @@ export default compose(
         addPostFunction: addPostFunctionActionCreator,
         deletePostFunction: deletePostFunctionActionCreator
     })
-    )(Social);
+)(Social);

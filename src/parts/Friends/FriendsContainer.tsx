@@ -5,17 +5,17 @@ import Users from "./Friends";
 import { compose } from "redux";
 import { useEffect } from "react";
 import { getFollowLoad, getPageCount, getIsFetching, getFriendsData, getTotalUsersCount, getPageSize, getSelectedPage, getPaginationPortion } from "../../common/selectors/usersSelectors";
-import {SmallUserType} from "../../common/types/types";
+import {UserType} from "../../common/types/types";
 
 
 type PropsType = {
     isFetching: boolean,
-    friendsData: Array<SmallUserType>,
+    friendsData: Array<UserType>,
     totalUsersCount: number,
     pageSize: number,
     selectedPage: number,
     pagesCount: number,
-    followLoad: boolean,
+    followLoad: Array<number>,
     paginationPortion: number,
     toggleFollowLoad: any,
     getUsersThunkCreator: any,
@@ -59,12 +59,12 @@ const Friends: FC<PropsType> = (props) => {
 let mapStateToProps = (state:any) => {
     return {
         isFetching: getIsFetching(state) as boolean,
-        friendsData: getFriendsData(state) as Array<SmallUserType>,
+        friendsData: getFriendsData(state) as Array<UserType>,
         totalUsersCount: getTotalUsersCount(state) as number,
         pageSize: getPageSize(state) as number,
         selectedPage: getSelectedPage(state) as number,
         pagesCount: getPageCount(state) as number,
-        followLoad: getFollowLoad(state) as boolean,
+        followLoad: getFollowLoad(state) as Array<number>,
         paginationPortion: getPaginationPortion(state) as number,
     }
 }

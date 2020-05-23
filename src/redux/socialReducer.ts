@@ -26,9 +26,9 @@ let initialState = {
         {id: 3, name: "Богдан", likes: "2", message: "Я люблю Ксюшеньку Свитенко !"}
     ]
 }
-type InitialStateType = typeof initialState;
- 
-const socialReducer = (state = initialState, action: any): InitialStateType => {
+export type SocialReducerInitialStateType = typeof initialState;
+
+const socialReducer = (state = initialState, action: any): SocialReducerInitialStateType => {
 
     let stateCopy = {...state};
     stateCopy.postData = [...state.postData];

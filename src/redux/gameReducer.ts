@@ -106,10 +106,10 @@ let initialState = {
     armor: 0
 }
 
-type InitialStateType = typeof initialState
+export type GameReducerInitialStateType = typeof initialState
 
-const gameReducer = (state = initialState, action:any): InitialStateType => {
-    let stateCopy: InitialStateType = { ...state };
+const gameReducer = (state = initialState, action:any): GameReducerInitialStateType => {
+    let stateCopy: GameReducerInitialStateType = { ...state };
 
     switch (action.type) {
         case BUYITEM:

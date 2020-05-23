@@ -3,7 +3,7 @@ import gameReducer from "./gameReducer";
 import socialReducer from "./socialReducer";
 import friendsReducer from "./friendsReducer";
 import userReducer from "./userReducer";
-import authreducer from "./auth-reducer";
+import authReducer from "./auth-reducer";
 import thunk from "redux-thunk";
 import { reducer as formReducer } from 'redux-form'
 
@@ -13,7 +13,7 @@ let reducers = combineReducers({
     socialPage: socialReducer,
     friendsPage: friendsReducer,
     userPage: userReducer,
-    auth: authreducer,
+    auth: authReducer,
     form: formReducer
 })
 

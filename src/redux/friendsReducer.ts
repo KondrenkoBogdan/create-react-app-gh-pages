@@ -1,5 +1,5 @@
 import { getUsers, getNewUsersPage, followApi, unfollowApi } from "../api/api";
-import {SmallUserType} from "../common/types/types";
+import {UserType} from "../common/types/types";
 
 let SETUSERS = "SET-USERS";
 let SETTOTALUSERSCOUNT = "SET-TOTAL-USERS-COUNT";
@@ -17,9 +17,9 @@ export const followFunctionActionCreator = (id: number): FollowFunctionActionTyp
 }
 type SetUsersActionType = {
     type: typeof SETUSERS
-    users: Array<SmallUserType>
+    users: Array<UserType>
 }
-export const setUsersActionCreator = (users: Array<SmallUserType>): SetUsersActionType => {
+export const setUsersActionCreator = (users: Array<UserType>): SetUsersActionType => {
     return { type: SETUSERS, users }
 }
 
@@ -59,18 +59,18 @@ export const toggleFollowLoad = (isFollowLoad: boolean, id: number):ToggleFollow
 
 
 let initialState = {
-    friendsData: [] as Array<any>,
+    friendsData: [] as Array<UserType>,
     pageSize: 100,
     totalUsersCount: 0,
     selectedPage: 1,
     isFetching: true,
-    followLoad: [] as Array<any>,
+    followLoad: [] as Array<number>,
     isFollowLoad: false,
     paginationPortion: 7
 }
-type InitialStoreType = typeof initialState
+export type FriendsReducerInitialStoreType = typeof initialState
 
-const friendsReducer = (state = initialState, action: any): InitialStoreType => {
+const friendsReducer = (state = initialState, action: any): FriendsReducerInitialStoreType => {
     let stateCopy: typeof state = { ...state };
     stateCopy.friendsData = [...state.friendsData];
     stateCopy.followLoad = [...state.followLoad];
@@ -79,7 +79,7 @@ const friendsReducer = (state = initialState, action: any): InitialStoreType => 
         case FOLLOWFUNCTION:
              stateCopy.friendsData.map( u => {
                 if (u.id === action.id){
-                    u.followed = u.followed === false;
+                    u.followed = !u.followed;
                 }
             })
             return stateCopy;

@@ -2,11 +2,11 @@ import React, {FC} from "react"
 import { NavLink } from "react-router-dom";
 import avatar from "../../../common/img/avatar.png";
 import s from './users.module.css';
-import {SmallUserType} from "../../../common/types/types";
+import {UserType} from "../../../common/types/types";
 
 
 type PropsType = {
-    friendsData: Array<SmallUserType>,
+    friendsData: Array<UserType>,
     followLoad: Array<number>,
     follow: any,
     isFollowedB: any

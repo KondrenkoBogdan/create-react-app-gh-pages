@@ -81,12 +81,12 @@ let initialState = {
     userStatus: "",
     isFetching: false,
     redirect: false,
-    error: null,
+    error: null as null | string,
     isLoadNewFile: false
 }
-type InitialStateType = typeof initialState;
+export type UserReducerInitialStateType = typeof initialState;
 
-const userReducer = (state = initialState, action:any):InitialStateType => {
+const userReducer = (state = initialState, action:any):UserReducerInitialStateType => {
 
     let stateCopy = { ...state }
     stateCopy.userInfo = { ...state.userInfo }

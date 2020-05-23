@@ -57,10 +57,10 @@ let initialState = {
     captcha: null as string|null
 }
 
-type InitialStateType = typeof initialState;
+export type AuthReducerInitialStateType = typeof initialState;
 
 
-const authReducer = (state = initialState, action: any) : InitialStateType => {
+const authReducer = (state = initialState, action: any) : AuthReducerInitialStateType => {
 
     let stateCopy = { ...state }
 
